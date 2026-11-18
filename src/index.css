@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --color-canvas: #F8F3EB;
+  --color-ivory: #FBF8F3;
+  --color-sand: #EFE6D8;
+  --color-sand-strong: #E3D4BE;
+  --color-espresso: #16110E;
+  --color-coffee: #2B1D16;
+  --color-coffee-muted: #614E43;
+  --color-forest: #173B2E;
+  --color-terracotta: #B8472A;
+  --color-terracotta-hover: #9E391F;
+  --color-ochre: #C8942B;
+  --color-ochre-deep: #A7761B;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--color-canvas);
+    color: var(--color-coffee);
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  button, a, select, input {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-terracotta);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Profundidade direcional suave ("quase 3D") para cartões flutuantes */
+  .depth-card {
+    box-shadow:
+      0 16px 36px -14px rgba(43, 29, 22, 0.18),
+      0 5px 12px -4px rgba(43, 29, 22, 0.09),
+      inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  }
+
+  .depth-card-hover {
+    transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 240ms cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .depth-card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      0 28px 54px -16px rgba(22, 17, 14, 0.24),
+      0 10px 22px -6px rgba(43, 29, 22, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  }
+
+  /* Elevação editorial mais profunda para blocos sobrepostos e modais */
+  .depth-frame {
+    box-shadow:
+      0 30px 64px -18px rgba(22, 17, 14, 0.28),
+      0 12px 26px -10px rgba(22, 17, 14, 0.16),
+      inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  }
+
+  /* Botões com relevo tátil esculpido e resposta física ao toque */
+  .btn-relief-primary {
+    box-shadow:
+      0 3px 0 #822E19,
+      0 12px 24px -8px rgba(184, 71, 42, 0.48),
+      inset 0 1px 0 rgba(255, 245, 232, 0.42);
+  }
+
+  .btn-relief-primary:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 4px 0 #822E19,
+      0 16px 28px -8px rgba(184, 71, 42, 0.56),
+      inset 0 1px 0 rgba(255, 245, 232, 0.48);
+  }
+
+  .btn-relief-primary:active {
+    transform: translateY(2px);
+    box-shadow:
+      0 1px 0 #822E19,
+      0 4px 10px -4px rgba(184, 71, 42, 0.42),
+      inset 0 2px 4px rgba(85, 22, 8, 0.25);
+  }
+
+  .btn-relief-dark {
+    box-shadow:
+      0 3px 0 #0D0907,
+      0 12px 24px -8px rgba(22, 17, 14, 0.46),
+      inset 0 1px 0 rgba(255, 245, 230, 0.22);
+  }
+
+  .btn-relief-dark:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 4px 0 #0D0907,
+      0 16px 30px -8px rgba(22, 17, 14, 0.54),
+      inset 0 1px 0 rgba(255, 245, 230, 0.26);
+  }
+
+  .btn-relief-dark:active {
+    transform: translateY(2px);
+    box-shadow:
+      0 1px 0 #0D0907,
+      0 4px 10px -4px rgba(22, 17, 14, 0.4),
+      inset 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .btn-relief-surface {
+    box-shadow:
+      0 2px 0 rgba(43, 29, 22, 0.16),
+      0 8px 18px -6px rgba(43, 29, 22, 0.16),
+      inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  }
+
+  .btn-relief-surface:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 3px 0 rgba(43, 29, 22, 0.18),
+      0 12px 22px -6px rgba(43, 29, 22, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.96);
+  }
+
+  .btn-relief-surface:active {
+    transform: translateY(1px);
+    box-shadow:
+      0 1px 0 rgba(43, 29, 22, 0.16),
+      0 3px 8px -3px rgba(43, 29, 22, 0.15),
+      inset 0 1px 3px rgba(43, 29, 22, 0.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}

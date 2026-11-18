@@ -1,0 +1,6 @@
+{
+  "name": "Cris Vieira Moda Africana",
+  "description": "Loja virtual e catálogo editorial de moda afro contemporânea da Cris Vieira Moda Africana.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
